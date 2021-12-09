@@ -24,17 +24,19 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetControllerInput();
-        Debug.Log(playerRB.velocity);
+        
     }
 
     private void FixedUpdate()
     {
         MovePlayer();
+        Debug.Log(playerRB.velocity);
     }
 
     private void GetControllerInput() //Fetch controller input
     {
-        lsInputVector = new Vector3(Input.GetAxis("X LS P1"), 0, Input.GetAxis("Y LS P1"));
+        lsInputVector = new Vector3(Input.GetAxis("X LS "+tag), 0, Input.GetAxis("Y LS "+tag)); // Tag is P1 for Player 1 OR P2 fpr Player 2. Axis are named X/Y LS P1/P2 for each controller
+
         if(lsInputVector.magnitude < inputDeadzone)
         {
             lsInputVector = Vector3.zero;
