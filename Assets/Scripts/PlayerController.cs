@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     //Controller values
     private Vector3 lsInputVector; //Left stick input as vector3
     public float inputDeadzone;
+    public GameObject weaponGameObject;
 
     //Game modifiers
     public float moveSpeed;
@@ -24,7 +25,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetControllerInput();
-        
+        if (Input.anyKeyDown)
+        {
+            weaponGameObject.GetComponent<WeaponDefault>().FireWeapon();
+        }
     }
 
     private void FixedUpdate()

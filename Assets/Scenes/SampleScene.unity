@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &254755283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2269395092972841679, guid: 2579c39f5f3f20341bf8a0b27c359f43, type: 3}
+  m_PrefabInstance: {fileID: 7728610291266606520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &963194226
 AudioListener:
   m_ObjectHideFlags: 0
@@ -450,9 +455,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7728610290582376286, guid: 2579c39f5f3f20341bf8a0b27c359f43, type: 3}
+      propertyPath: weaponGameObject
+      value: 
+      objectReference: {fileID: 254755283}
     - target: {fileID: 9026737560142659043, guid: 2579c39f5f3f20341bf8a0b27c359f43, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2579c39f5f3f20341bf8a0b27c359f43, type: 3}
@@ -465,7 +474,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3568804024321250576, guid: 77869c1d29402984297aef9184898047, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8437459929178215379, guid: 77869c1d29402984297aef9184898047, type: 3}
       propertyPath: m_Name

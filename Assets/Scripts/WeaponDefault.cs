@@ -20,7 +20,7 @@ public class WeaponDefault : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FireWeapon()        
+    public void FireWeapon()        
     {
         if (weaponReady)
         {
