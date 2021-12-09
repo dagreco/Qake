@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Components
-    public Rigidbody playerRB; //Rigidbody of player, assigned in-editor
+    public Rigidbody playerRB;
     
     //Controller values
     private Vector3 lsInputVector; //Left stick input as vector3
@@ -33,9 +33,9 @@ public class PlayerController : MonoBehaviour
         Debug.Log(playerRB.velocity);
     }
 
-    private void GetControllerInput() //Fetch controller input
+    private void GetControllerInput() //Fetch controller input, for each player
     {
-        lsInputVector = new Vector3(Input.GetAxis("X LS "+tag), 0, Input.GetAxis("Y LS "+tag)); // Tag is P1 for Player 1 OR P2 fpr Player 2. Axis are named X/Y LS P1/P2 for each controller
+        lsInputVector = new Vector3(Input.GetAxis("X LS "+tag), 0, Input.GetAxis("Y LS "+tag)); // Tag is P1 for Player 1 OR P2 for Player 2
 
         if(lsInputVector.magnitude < inputDeadzone)
         {
