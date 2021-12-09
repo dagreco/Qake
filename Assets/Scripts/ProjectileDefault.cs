@@ -21,7 +21,7 @@ public class ProjectileDefault : MonoBehaviour
 
     private void MoveProjectile()
     {
-        projectileRB.AddForce(Vector3.forward*fireForce,ForceMode.VelocityChange);
+        projectileRB.AddRelativeForce(Vector3.forward*fireForce,ForceMode.VelocityChange);
     }    
 
     private void FixedUpdate()
