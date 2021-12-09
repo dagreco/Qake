@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
     //Components
     public Rigidbody playerRB; //Rigidbody of player, assigned in-editor
     
-    //Controller inputs
-    private float xAxis; //Left stick x axis (fetched in Update() and applied in FixedUpdate())
-    private float yAxis; //Left stick y axis (fetched in Update() and applied in FixedUpdate())
+    //Controller values
+    private Vector3 lsInputVector; //Left stick input as vector3
+    public float inputDeadzone;
 
     //Game modifiers
-    
+    public float moveSpeed;
 
 
     void Start()
@@ -24,22 +24,25 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetControllerInput();
-        MovePlayer();
+        
     }
 
     private void FixedUpdate()
     {
-        
+        MovePlayer();
     }
 
     private void GetControllerInput() //Fetch controller input
     {
-        xAxis = Input.GetAxis("X LS P1");
-        yAxis = Input.GetAxis("Y LS P1");
+        lsInputVector = new Vector3(Input.GetAxis("X LS P1"), 0, Input.GetAxis("Y LS P1"));
+        if(lsInputVector.magnitude < inputDeadzone)
+        {
+            lsInputVector = Vector3.zero;
+        }
     }
 
-    private void MovePlayer()
+    private void MovePlayer() //Does whats on the tin
     {
-
+        playerRB.velocity = lsInputVector*moveSpeed;
     }
 }
