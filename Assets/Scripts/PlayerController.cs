@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     //Game modifiers
     public float moveSpeed;
-
+  
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetControllerInput();
-        
+        Debug.Log(playerRB.velocity);
     }
 
     private void FixedUpdate()
