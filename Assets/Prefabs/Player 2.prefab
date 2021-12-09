@@ -257,4 +257,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRB: {fileID: 8437459929178215377}
   inputDeadzone: 0.25
+  weaponGameObject: {fileID: 7709064068265264187}
   moveSpeed: 4

@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-        Debug.Log(playerRB.velocity);
     }
 
     private void GetControllerInput() //Fetch controller input, for each player
