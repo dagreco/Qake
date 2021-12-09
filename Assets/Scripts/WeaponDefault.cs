@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponDefault : MonoBehaviour
 {
+    public GameObject Projectile;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,8 +12,8 @@ public class WeaponDefault : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FireWeapon()
     {
-        
+        Instantiate(Projectile);
     }
 }
