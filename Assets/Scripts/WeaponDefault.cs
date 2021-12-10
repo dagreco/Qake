@@ -6,13 +6,14 @@ public class WeaponDefault : MonoBehaviour
 {
     public GameObject projectile;
     public float fireRate = 0.4f;
+	public double healthPoints;
     public GameObject spawnpoint;
     private bool weaponReady = true;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        var x = "abc";
     }
     private void Update()
     {
@@ -26,11 +27,12 @@ public class WeaponDefault : MonoBehaviour
         {
             Instantiate(projectile,spawnpoint.transform.position, transform.rotation);
             weaponReady = false;
-            StartCoroutine("shotCooldown");
+            StartCoroutine("shotSkouris");
+			
         }
 
     }
-    IEnumerator shotCooldown()
+    IEnumerator shotSkouris()
     {
         yield return new WaitForSeconds(fireRate);
         weaponReady = true;
