@@ -6,23 +6,18 @@ public class WeaponDefault : MonoBehaviour
 {
     public GameObject projectile;
     public float fireRate = 0.4f;
+	public double healthPoints;
     public GameObject spawnpoint;
     private bool weaponReady = true;
-    private bool oSkourisVromaei = true;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        var x = "abc";
     }
-    private void Update4()
+    private void Update()
     {
        
-    }
-
-    private void Skouris()
-    {
-        Debug.Log("i mana tou skouri");
     }
 
     // Update is called once per frame
@@ -32,11 +27,16 @@ public class WeaponDefault : MonoBehaviour
         {
             Instantiate(projectile,spawnpoint.transform.position, transform.rotation);
             weaponReady = false;
-            StartCoroutine("shotCdown");
+            StartCoroutine("shotSkouris");
+			
         }
 
     }
-    
+    IEnumerator shotSkouris()
+    {
+        yield return new WaitForSeconds(fireRate);
+        weaponReady = true;
+    }
     
 
 }
