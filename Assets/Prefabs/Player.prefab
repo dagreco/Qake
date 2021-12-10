@@ -142,8 +142,8 @@ GameObject:
   - component: {fileID: 7728610290582376281}
   - component: {fileID: 7728610290582376285}
   - component: {fileID: 7728610290582376286}
-  - component: {fileID: 5603409449023605917}
   - component: {fileID: 981944362236433321}
+  - component: {fileID: 5603409449023605917}
   m_Layer: 0
   m_Name: Player
   m_TagString: P1
@@ -257,20 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afab58a14bcb7d34baad3f2475164795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5603409449023605917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7728610290582376280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc0762a3d0490974d9512d224f8f4e4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 5
-  rigidBody: {fileID: 7728610290582376285}
 --- !u!114 &981944362236433321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,3 +307,17 @@ MonoBehaviour:
   m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 5945335329202503837, guid: 1cea05886091b1f49ad5f2f29df1fb46, type: 3}
+--- !u!114 &5603409449023605917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728610290582376280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0762a3d0490974d9512d224f8f4e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
+  rigidBody: {fileID: 7728610290582376285}

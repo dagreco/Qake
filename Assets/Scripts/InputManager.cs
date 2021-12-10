@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
+using static UnityEngine.InputSystem.PlayerInputManager;
 
 public class InputManager : MonoBehaviour
 {
@@ -33,4 +34,5 @@ public class InputManager : MonoBehaviour
     {
         movement.SetRightStickVector(context.ReadValue<Vector2>());
     }
+
 }
