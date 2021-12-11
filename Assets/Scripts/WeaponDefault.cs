@@ -2,39 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponDefault : MonoBehaviour
+public class WeaponDefault : Weapon
 {
-    public GameObject projectile;
-    public float fireRate = 0.4f;
-    public GameObject spawnpoint;
-    private bool weaponReady = true;
-    
+    public GameObject Projectile;
+    public GameObject Spawnpoint;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        FireRate = 0.4f;
+        WeaponReady = true;
     }
     private void Update()
     {
-       
+       // FireWeapon();
     }
 
     // Update is called once per frame
-    public void FireWeapon()        
+    public override void FireWeapon()
     {
-        if (weaponReady)
+        if (WeaponReady)
         {
-            Instantiate(projectile,spawnpoint.transform.position, transform.rotation);
-            weaponReady = false;
+            Instantiate(Projectile,Spawnpoint.transform.position, transform.rotation);
+            WeaponReady = false;
             StartCoroutine("shotCooldown");
         }
 
     }
     IEnumerator shotCooldown()
     {
-        yield return new WaitForSeconds(fireRate);
-        weaponReady = true;
+        yield return new WaitForSeconds(FireRate);
+        WeaponReady = true;
     }
-    
+     
 
 }
