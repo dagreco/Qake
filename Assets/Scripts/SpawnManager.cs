@@ -1,19 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SpawnManager : MonoBehaviour
 {  
+    //Spawnpoints (In editor always called P1 Spawnpoint and P2 Spawnpoint)
+    private GameObject SpawnPoint_1; 
+    private GameObject SpawnPoint_2;
+        
     private int _playerCount = 1;
-    public GameObject SpawnPoint_1;
-    public GameObject SpawnPoint_2;
 
-    public void PlayerJoined() //Finds player gameobject and renames to the controlling player
+    private void Awake()
     {
-        GameObject newPlayer = GameObject.Find("Player(Clone)");
-        newPlayer.name = "Player " + _playerCount;
-        SetSpawnPosition(newPlayer);
+        SpawnPoint_1 = GameObject.Find("P1 Spawnpoint");
+        SpawnPoint_2 = GameObject.Find("P2 Spawnpoint");
+    }
+
+    public void PlayerJoined() //Gives latest joined player the corresponding name (Player 1 and Player 2)
+    {
+        GameObject lastJoined = GameObject.Find("Character(Clone)");
+        lastJoined.name = "Player " + _playerCount;
+        SetSpawnPosition(lastJoined);
         _playerCount++;
     }
 
@@ -24,9 +29,11 @@ public class SpawnManager : MonoBehaviour
             case 1:
                 player.transform.position = SpawnPoint_1.transform.position;
                 break;
+
             case 2:
                 player.transform.position = SpawnPoint_2.transform.position;
                 break;
+
             default:
                 break;
         }

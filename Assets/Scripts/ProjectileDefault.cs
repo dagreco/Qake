@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileDefault : MonoBehaviour
@@ -13,19 +11,8 @@ public class ProjectileDefault : MonoBehaviour
         MoveProjectile();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void MoveProjectile()
     {
-        _projectileRB.AddRelativeForce(Vector3.forward*FireForce,ForceMode.VelocityChange);
-    }    
-
-    private void FixedUpdate()
-    {
-        
+        _projectileRB.AddRelativeForce(Vector3.forward * FireForce, ForceMode.VelocityChange);
     }
 }

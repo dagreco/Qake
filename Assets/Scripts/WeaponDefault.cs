@@ -1,40 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponDefault : Weapon
 {
-    public GameObject Projectile;
-    public GameObject Spawnpoint;
+    [SerializeField] private GameObject Projectile;
+    private GameObject Spawnpoint;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         FireRate = 0.4f;
-        WeaponReady = true;
-        SpawnOffset = new Vector3(0, 0, 0.4f);
+        Spawnpoint = transform.GetChild(0).gameObject;
     }
-    private void Update()
-    {
-        // FireWeapon();
-    }
-
+  
     // Update is called once per frame
-    public override void FireWeapon()
+    public override void Shoot()
     {
-        if (WeaponReady)
+        if (CanShoot)
         {
             Instantiate(Projectile, Spawnpoint.transform.position, transform.rotation);
-            WeaponReady = false;
-            StartCoroutine("shotCooldown");
+            CanShoot = false;
+            StartCoroutine("ShotCooldown");
         }
-
     }
-    IEnumerator shotCooldown()
-    {
-        yield return new WaitForSeconds(FireRate);
-        WeaponReady = true;
-    }
-
-
 }

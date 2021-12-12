@@ -1,47 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     //Analog stick vectors
-    private Vector2 _leftStick;
-    private Vector2 _rightStick;
-    public float DeadZone = 0.1f;
+    [HideInInspector] public Vector2 _leftStick;
+    [HideInInspector] public Vector2 _rightStick;
+
+    //Button bools
+    [HideInInspector] public bool RightShoulderPressed;
 
     //Gameplay modifiers
     [SerializeField] private float movementSpeed;
 
     //Components
-    [SerializeField] private Rigidbody rigidBody;
+    private Rigidbody rigidBody;
 
+    private void Awake()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate()
     {
         Move();
         Aim();
     }
-
-    public void SetLeftStickVector(Vector2 direction)
+    private void Update()
     {
-        _leftStick = direction;
+        if (RightShoulderPressed)
+            Shoot();
     }
 
-    public void SetRightStickVector(Vector2 direction)
-    {
-        _rightStick = direction;
-        
-    }
-
-    private void Move() //Movement and aiming logic
+    private void Move() //Movement logic
     {
         rigidBody.velocity = new Vector3(_leftStick.x, 0, _leftStick.y) * movementSpeed;
     }
 
-    private void Aim()
+    public void Shoot() //Shooting logic
     {
-        if(_rightStick.magnitude > DeadZone)
-            transform.rotation = Quaternion.LookRotation(new Vector3(_rightStick.x, 0, _rightStick.y));
+        transform.GetChild(0).gameObject.GetComponent<WeaponDefault>().Shoot();
+    }
+
+    private void Aim() //Aiming logic
+    {
+        transform.rotation = Quaternion.LookRotation(new Vector3(_rightStick.x, 0, _rightStick.y));
     }
     
 }

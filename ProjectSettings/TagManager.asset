@@ -8,6 +8,8 @@ TagManager:
   - P2
   - Grenade
   - DefaultWeapon
+  - P1 Spawnpoint
+  - P2 Spawnpoint
   layers:
   - Default
   - TransparentFX

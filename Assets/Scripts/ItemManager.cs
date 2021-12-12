@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     // Expandable Dictionary containing all the Weapons and coresponding values
-    private Dictionary<string, GameObject> _weaponList;
+    //private Dictionary<string, GameObject> _weaponList;
 
     // Weapon the player is currently holding (E.g DefaultWeapon = 1)
     public GameObject WeaponAtHand;
@@ -13,19 +13,6 @@ public class ItemManager : MonoBehaviour
 
     [SerializeField] private GameObject _defaultWeapon;
     [SerializeField] private GameObject _weaponGrenade;
-
-
-    void Start()
-    {
-
-     
-
-    }
-
-    private void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
