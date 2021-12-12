@@ -12,6 +12,7 @@ public class WeaponDefault : Weapon
     {
         FireRate = 0.4f;
         WeaponReady = true;
+        SpawnOffset = new Vector3(0, 0, 0.4f);
     }
     private void Update()
     {

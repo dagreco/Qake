@@ -6,6 +6,7 @@ public abstract class Weapon : MonoBehaviour
 {
     protected float FireRate;
     protected bool WeaponReady;
+    public Vector3 SpawnOffset;
 
     // Start is called before the first frame update
     void Start()

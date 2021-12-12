@@ -13,13 +13,13 @@ public class ItemManager : MonoBehaviour
 
     [SerializeField] private GameObject _defaultWeapon;
     [SerializeField] private GameObject _weaponGrenade;
-    [SerializeField] private GameObject _player;
 
 
     void Start()
     {
-        WeaponAtHand = transform.GetChild(0).gameObject;
-        
+
+     
+
     }
 
     private void Update()
@@ -27,15 +27,11 @@ public class ItemManager : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collision");
-        
-        _collisionWeaponTag = other.collider.tag;
-        Destroy(other.gameObject);
-        SpawnWeaponPickup(_collisionWeaponTag);
-        
-
+         _collisionWeaponTag = other.transform.tag;
+         Destroy(other.gameObject);
+         SpawnWeaponPickup(_collisionWeaponTag);
     }
 
     void SpawnWeaponPickup(string tag)
@@ -44,31 +40,33 @@ public class ItemManager : MonoBehaviour
         switch (tag)
         {
             case "DefaultWeapon":
-                DestroyWeaponAtHand();
-                Destroy(transform.GetChild(0).gameObject);
-                var obj = Instantiate(_defaultWeapon);              
+
+                Object.Destroy(WeaponAtHand);
+                //Destroy(transform.GetChild(0).gameObject);
+                var obj = Instantiate(_defaultWeapon);
+                obj.transform.position = transform.position + new Vector3(0, 0, 0.3f); 
                 obj.transform.parent = gameObject.transform;
-                WeaponAtHand = transform.GetChild(0).gameObject;
+                WeaponAtHand = transform.GetChild(1).gameObject;
 
                 break;
 
             case "Grenade":
-                DestroyWeaponAtHand();
-                Destroy(transform.GetChild(0).gameObject);
-                var obj2 = Instantiate(_weaponGrenade);                
+
+                Object.Destroy(WeaponAtHand);
+                //Destroy(transform.GetChild(0).gameObject);
+                var obj2 = Instantiate(_weaponGrenade);
+                obj2.transform.position = transform.position + new Vector3(1, 0, 0);
                 obj2.transform.parent = gameObject.transform;
-                WeaponAtHand = transform.GetChild(0).gameObject;
+                WeaponAtHand = transform.GetChild(1).gameObject;
 
                 break;
 
             default:
+
                 break;
         }
 
     }
 
-    void DestroyWeaponAtHand()
-    {
-        Object.Destroy(WeaponAtHand);
-    }
+
 }

@@ -333,4 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b498679da1f669a48aac65714bb3fd78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponAtHand: 1
+  WeaponAtHand: {fileID: 2269395092972841679}
+  _defaultWeapon: {fileID: 1561230190840736537, guid: d9f1ce83607c3884a9f3a9ca3309608d, type: 3}
+  _weaponGrenade: {fileID: 762893987163648359, guid: 5493a903337ca8c46b6d89c3be257943, type: 3}
