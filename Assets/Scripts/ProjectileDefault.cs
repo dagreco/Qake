@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ProjectileDefault : MonoBehaviour
 {
-    private Rigidbody projectileRB;
-    public float fireForce = 10;
+    private Rigidbody _projectileRB;
+    public float FireForce = 10;
     // Start is called before the first frame update
     void Start()
     {
-        projectileRB = GetComponent<Rigidbody>();
+       _projectileRB = GetComponent<Rigidbody>();
         MoveProjectile();
     }
 
@@ -21,7 +21,7 @@ public class ProjectileDefault : MonoBehaviour
 
     private void MoveProjectile()
     {
-        projectileRB.AddRelativeForce(Vector3.forward*fireForce,ForceMode.VelocityChange);
+        _projectileRB.AddRelativeForce(Vector3.forward*FireForce,ForceMode.VelocityChange);
     }    
 
     private void FixedUpdate()

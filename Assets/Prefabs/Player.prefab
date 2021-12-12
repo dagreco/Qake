@@ -95,9 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45d9057e6a4e9b41876ced68ccd4050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 7589478797318515415, guid: 46f8c7e80b67e174eba701e706e4be24, type: 3}
-  fireRate: 0.4
-  spawnpoint: {fileID: 4422997990157382986}
+  Projectile: {fileID: 0}
+  Spawnpoint: {fileID: 0}
 --- !u!1 &4422997990157382986
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +143,7 @@ GameObject:
   - component: {fileID: 7728610290582376286}
   - component: {fileID: 981944362236433321}
   - component: {fileID: 5603409449023605917}
+  - component: {fileID: 8699417149558278896}
   m_Layer: 0
   m_Name: Player
   m_TagString: P1
@@ -334,3 +334,18 @@ MonoBehaviour:
   deadZone: 0.1
   movementSpeed: 5
   rigidBody: {fileID: 7728610290582376285}
+--- !u!114 &8699417149558278896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728610290582376280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b498679da1f669a48aac65714bb3fd78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponAtHand: {fileID: 2269395092972841679}
+  _defaultWeapon: {fileID: 1561230190840736537, guid: d9f1ce83607c3884a9f3a9ca3309608d, type: 3}
+  _weaponGrenade: {fileID: 762893987163648359, guid: 5493a903337ca8c46b6d89c3be257943, type: 3}
