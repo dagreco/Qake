@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void Aim()
     {
-        if(_rightStick.magnitude > deadZone)
+        if(_rightStick.magnitude > DeadZone)
             transform.rotation = Quaternion.LookRotation(new Vector3(_rightStick.x, 0, _rightStick.y));
     }
     
