@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class WeaponDefault : MonoBehaviour
 {
-    public GameObject projectile;
-    public float fireRate = 0.4f;
-    public GameObject spawnpoint;
-    private bool weaponReady = true;
+    public GameObject Projectile;
+    public float FireRate = 0.4f;
+    public GameObject Spawnpoint;
+    private bool _weaponReady = true;
     
     // Start is called before the first frame update
     void Start()
@@ -22,18 +22,18 @@ public class WeaponDefault : MonoBehaviour
     // Update is called once per frame
     public void FireWeapon()        
     {
-        if (weaponReady)
+        if (_weaponReady)
         {
-            Instantiate(projectile,spawnpoint.transform.position, transform.rotation);
-            weaponReady = false;
+            Instantiate(Projectile,Spawnpoint.transform.position, transform.rotation);
+            _weaponReady = false;
             StartCoroutine("shotCooldown");
         }
 
     }
     IEnumerator shotCooldown()
     {
-        yield return new WaitForSeconds(fireRate);
-        weaponReady = true;
+        yield return new WaitForSeconds(FireRate);
+        _weaponReady = true;
     }
     
 
