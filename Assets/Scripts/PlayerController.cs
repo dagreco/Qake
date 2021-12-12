@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,9 +16,12 @@ public class PlayerController : MonoBehaviour
     //Components
     private Rigidbody rigidBody;
 
+    private Inventory inventory; 
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        inventory = GetComponent<Inventory>();
     }
 
     private void FixedUpdate()
@@ -31,6 +35,11 @@ public class PlayerController : MonoBehaviour
             Shoot();
     }
 
+    private void Drop()
+    {
+        throw new NotImplementedException();
+    }
+
     private void Move() //Movement logic
     {
         rigidBody.velocity = new Vector3(_leftStick.x, 0, _leftStick.y) * movementSpeed;
@@ -38,7 +47,8 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot() //Shooting logic
     {
-        transform.GetChild(0).gameObject.GetComponent<WeaponDefault>().Shoot();
+        Debug.Log(inventory.ActiveWeapon);
+        inventory.ActiveWeapon.GetComponent<Weapon>().Shoot();
     }
 
     private void Aim() //Aiming logic

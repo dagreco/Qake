@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 150031027540071460}
   - component: {fileID: 8426048134652108293}
   - component: {fileID: 888432628440501342}
-  - component: {fileID: 4017214272745409491}
+  - component: {fileID: 6072978187861062032}
   m_Layer: 0
   m_Name: WeaponDefault
   m_TagString: Untagged
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4017214272745409491
+--- !u!114 &6072978187861062032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,9 +92,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1561230190840736537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d45d9057e6a4e9b41876ced68ccd4050, type: 3}
+  m_Script: {fileID: 11500000, guid: 75fce0ecb4b9c4a45b2218f9736e00a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 0
+  ReadyToShoot: 1
+  FireRate: 0.3
+  StartingAmmo: 0
+  MagazineSize: 0
+  AmmoInMagazine: 0
+  ProjectileSpawnpoint: {fileID: 0}
+  PositionOffset: {x: 0, y: 0, z: 0}
   Projectile: {fileID: 7589478797318515415, guid: 46f8c7e80b67e174eba701e706e4be24, type: 3}
 --- !u!1 &9161020230421047834
 GameObject:

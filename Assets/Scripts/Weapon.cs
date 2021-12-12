@@ -1,17 +1,22 @@
-using System.Collections;
 using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    protected float FireRate;
-    protected bool CanShoot = true;
-    protected Vector3 ProjectileSpawnOffset;
+    public int Damage;
+    public bool ReadyToShoot = true;
+    public float FireRate;
 
     public abstract void Shoot();
+    public abstract void Reload();
 
-    protected IEnumerator ShotCooldown()
+    public void Drop()
     {
-        yield return new WaitForSeconds(FireRate);
-        CanShoot = true;
+        gameObject.transform.SetParent(null, true);
+    }
+
+    private void Awake()
+    {
+        
     }
 }
+
