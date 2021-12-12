@@ -95,8 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45d9057e6a4e9b41876ced68ccd4050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
-  Spawnpoint: {fileID: 0}
+  SpawnOffset: {x: 0, y: 0, z: 0}
+  Projectile: {fileID: 7589478797318515415, guid: 46f8c7e80b67e174eba701e706e4be24, type: 3}
+  Spawnpoint: {fileID: 4422997990157382986}
 --- !u!1 &4422997990157382986
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &7728610290582376286
 MonoBehaviour:
@@ -314,6 +315,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3ff67e55-7755-4cbd-aed4-fa7ceec61bf7
     m_ActionName: Controls/Aiming[/DualShock4GamepadHID/rightStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7728610290582376286}
+        m_TargetAssemblyTypeName: InputHandling, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 45cd30e2-6563-4b04-a573-96b5292ec08c
+    m_ActionName: Controls/Shoot[/DualShock4GamepadHID1/rightShoulder,/DualShock4GamepadHID/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controls
@@ -331,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0762a3d0490974d9512d224f8f4e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadZone: 0.1
+  DeadZone: 0.1
   movementSpeed: 5
   rigidBody: {fileID: 7728610290582376285}
 --- !u!114 &8699417149558278896
