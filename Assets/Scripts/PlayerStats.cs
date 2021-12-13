@@ -18,5 +18,6 @@ public class PlayerStats : MonoBehaviour
     {
         _slider = GameObject.Find(gameObject.name + " bar").GetComponent<Slider>();
         _slider.maxValue = HP;
+        _slider.value = HP;
     }
 }
