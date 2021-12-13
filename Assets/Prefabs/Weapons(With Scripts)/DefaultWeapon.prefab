@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fce0ecb4b9c4a45b2218f9736e00a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 20
+  Damage: 50
   ReadyToShoot: 1
   FireRate: 0.3
   StartingAmmo: 0

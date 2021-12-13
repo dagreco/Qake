@@ -11,17 +11,22 @@ public abstract class Ranged : Weapon
     [HideInInspector] public Transform ProjectileSpawnpoint;
     public Vector3 PositionOffset;
     public GameObject Projectile;
-
+    
     public override void Shoot()
     {
         if (ReadyToShoot)
         {
-            Instantiate(Projectile, ProjectileSpawnpoint.position, ProjectileSpawnpoint.rotation).GetComponent<Projectile>().Damage = Damage;
+            Instantiate(Projectile, ProjectileSpawnpoint.position, ProjectileSpawnpoint.rotation);
             Invoke("LoadNextShot", FireRate);
             ReadyToShoot = false;
             Debug.Log("Shot");
         }
     }
     public abstract override void Reload();
+
+    private void Start()
+    {
+        Projectile.GetComponent<Projectile>().Damage = Damage;
+    }
 
 }

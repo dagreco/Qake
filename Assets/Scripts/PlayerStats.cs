@@ -22,10 +22,10 @@ public class PlayerStats : MonoBehaviour
     {
         if(collision.gameObject.tag == "Projectile")
         {
-        Physics.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider>());
-        HP -= collision.gameObject.GetComponent<Projectile>().Damage;
-        Destroy(collision.gameObject);
-        UpdateHealth();
+            Physics.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider>());
+            HP -= collision.gameObject.GetComponent<Projectile>().Damage;
+            Destroy(collision.gameObject);
+            UpdateHealth();
         }
     }
 
