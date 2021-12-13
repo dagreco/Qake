@@ -14,6 +14,15 @@ public class PlayerStats : MonoBehaviour
             Destroy(gameObject);
     }
 
+   
+
+    private void OnTriggerEnter(Collider other)
+    {
+        HP -= other.gameObject.GetComponent<Projectile>().Damage; 
+        UpdateHealth();
+        Destroy(other.gameObject);
+    }
+
     private void Awake()
     {
         _slider = GameObject.Find(gameObject.name + " bar").GetComponent<Slider>();
