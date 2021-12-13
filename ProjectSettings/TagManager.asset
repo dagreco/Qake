@@ -10,6 +10,7 @@ TagManager:
   - DefaultWeapon
   - P1 Spawnpoint
   - P2 Spawnpoint
+  - Projectile
   layers:
   - Default
   - TransparentFX
