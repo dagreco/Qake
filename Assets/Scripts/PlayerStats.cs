@@ -16,11 +16,17 @@ public class PlayerStats : MonoBehaviour
 
    
 
-    private void OnTriggerEnter(Collider other)
+    
+
+    private void OnCollisionEnter(Collision collision)
     {
-        HP -= other.gameObject.GetComponent<Projectile>().Damage; 
+        if(collision.gameObject.tag == "Projectile")
+        {
+        Physics.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider>());
+        HP -= collision.gameObject.GetComponent<Projectile>().Damage;
+        Destroy(collision.gameObject);
         UpdateHealth();
-        Destroy(other.gameObject);
+        }
     }
 
     private void Awake()
