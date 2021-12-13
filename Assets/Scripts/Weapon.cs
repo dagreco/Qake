@@ -10,13 +10,7 @@ public abstract class Weapon : MonoBehaviour
     public abstract void Shoot();
     public abstract void Reload();
 
-    public void  SetPosition()
-    {
-        
-        transform.position += PositionOffset;
-        Debug.Log(transform.localPosition);
-    }
-
     
+
 }
 

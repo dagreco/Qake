@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
             HolsteredWeapon = ActiveWeapon;
             ActiveWeapon = newWeapon;
             HolsteredWeapon.SetActive(false);
-            ActiveWeapon.GetComponent<Weapon>().SetPosition();
+            SetPositionOfPickedUpWeapon();
         }
         else if(ActiveWeapon != null && HolsteredWeapon !=null) //Is called when player has two weapons already. Active weapon is dropped and replaced by new weapon
         {
@@ -79,6 +79,11 @@ public class Inventory : MonoBehaviour
     public void Drop(GameObject item)
     {
         item.transform.SetParent(null, true);
+    }
+
+    public void SetPositionOfPickedUpWeapon()
+    {
+        ActiveWeapon.gameObject.transform.localPosition += ActiveWeapon.GetComponent<Weapon>().PositionOffset;
     }
 
     private void OnTriggerEnter(Collider other)
