@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : MonoBehaviour //Spawns players on specified spawnpoints and gives them names
 {  
     //Spawnpoints (In editor always called P1 Spawnpoint and P2 Spawnpoint)
     private GameObject SpawnPoint_1; 
@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour
         SpawnPoint_2 = GameObject.Find("P2 Spawnpoint");
     }
 
-    public void PlayerJoined() //Gives latest joined player the corresponding name (Player 1 and Player 2)
+    public void PlayerJoined() //When player joins, gives him corresponding name (Player 1 and Player 2)
     {
         GameObject lastJoined = GameObject.Find("Character(Clone)");
         lastJoined.name = "Player " + _playerCount;

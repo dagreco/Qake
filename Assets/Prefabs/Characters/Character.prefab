@@ -270,7 +270,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActiveWeapon: {fileID: 0}
   ActiveEquipment: {fileID: 0}
-  HolsteredWeapon: {fileID: 0}
 --- !u!1 &6474740528096590802
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1561230190840736537, guid: d9f1ce83607c3884a9f3a9ca3309608d, type: 3}
       propertyPath: m_Name
-      value: WeaponDefault
+      value: DefaultWeapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9f1ce83607c3884a9f3a9ca3309608d, type: 3}

@@ -2,21 +2,10 @@ using UnityEngine;
 
 public class DefaultWeapon : Ranged
 {
-    public GameObject Projectile;
-    public override void Shoot()
-    {
-        if (ReadyToShoot)
-        {
-            Instantiate(Projectile, ProjectileSpawnpoint.transform.position, ProjectileSpawnpoint.transform.rotation);
-            Invoke("LoadNextShot", FireRate);
-            ReadyToShoot = false;
-            Debug.Log("Shot");
-        }
-    }
 
     public override void Reload()
     {
-        throw new System.NotImplementedException();
+        //TODO Implement reloading
     }
 
     private void LoadNextShot()
@@ -26,8 +15,7 @@ public class DefaultWeapon : Ranged
 
     private void Awake()
     {
-        ProjectileSpawnpoint = transform.GetChild(0).gameObject;
-        GetComponentInParent<Inventory>().SetActiveWeapon(gameObject);
+        ProjectileSpawnpoint = transform.GetChild(0).gameObject.transform;
     }
 
 }

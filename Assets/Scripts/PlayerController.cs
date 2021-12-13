@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     //Components
     private Rigidbody rigidBody;
-
     private Inventory inventory; 
 
     private void Awake()
@@ -35,9 +34,9 @@ public class PlayerController : MonoBehaviour
             Shoot();
     }
 
-    private void Drop()
+    private void Equp()
     {
-        throw new NotImplementedException();
+        //TODO Implement picking up items 
     }
 
     private void Move() //Movement logic
@@ -45,15 +44,19 @@ public class PlayerController : MonoBehaviour
         rigidBody.velocity = new Vector3(_leftStick.x, 0, _leftStick.y) * movementSpeed;
     }
 
-    public void Shoot() //Shooting logic
-    {
-        Debug.Log(inventory.ActiveWeapon);
-        inventory.ActiveWeapon.GetComponent<Weapon>().Shoot();
-    }
-
     private void Aim() //Aiming logic
     {
         transform.rotation = Quaternion.LookRotation(new Vector3(_rightStick.x, 0, _rightStick.y));
     }
-    
+    public void Shoot() //Shooting logic
+    {
+        inventory.ActiveWeapon.GetComponent<Weapon>().Shoot();
+    }
+
+    public void UseEquipment() //Euipment use logic
+    {
+        /* TODO Implement using equipment
+         * inventory.ActiveEquipment.GetComponent<Item>().Use(); */
+         
+    }
 }
