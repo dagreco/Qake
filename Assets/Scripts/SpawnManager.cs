@@ -29,7 +29,7 @@ public class SpawnManager : MonoBehaviour //Spawns players on specified spawnpoi
             case 1:
                 player.transform.position = SpawnPoint_1.transform.position;
                 break;
-
+                
             case 2:
                 player.transform.position = SpawnPoint_2.transform.position;
                 break;
