@@ -9,6 +9,5 @@ public abstract class Projectile : MonoBehaviour
     private void Awake()
     {
         ProjectileRB = GetComponent<Rigidbody>();
-        Debug.Log("skouris");
     }
 }

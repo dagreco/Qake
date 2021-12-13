@@ -9,7 +9,7 @@ public abstract class Ranged : Weapon
     public int MagazineSize;
     [HideInInspector] public int AmmoInMagazine;
     [HideInInspector] public Transform ProjectileSpawnpoint;
-    public Vector3 PositionOffset;
+    
     public GameObject Projectile;
     
     public override void Shoot()

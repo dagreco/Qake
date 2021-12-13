@@ -10,19 +10,28 @@ public class Inventory : MonoBehaviour
     private GameObject HolsteredWeapon;
     private GameObject HolsteredEquipment;
 
+    private GameObject WeaponsContainer;
+
     private void Awake()
     {
-        SetActiveWeapon(transform.Find("Weapons/DefaultWeapon").gameObject);
+        WeaponsContainer = transform.Find("Weapons").gameObject;
+        SetActiveWeapon(transform.Find("Weapons/DefaultWeapon").gameObject); //Sets Default weapon on ActiveWeapon at spawn of player
     }
 
-    public void SetActiveWeapon(GameObject newWeapon)
+    public void SetActiveWeapon(GameObject newWeapon)   //Set first active weapon (to be used by the default weapon, when spawning player)
     {
-        if(ActiveWeapon == null && HolsteredWeapon == null) ActiveWeapon = newWeapon; //Set first active weapon (to be used by the default weapon, when spawning player)
+        if (ActiveWeapon == null && HolsteredWeapon == null)
+        {
+            ActiveWeapon = newWeapon;
+            
+        }
 
         else if(ActiveWeapon != null && HolsteredWeapon == null) //Is called when player has one weapon already. Active becomes holstered and new weapon set to active weapon
         {
-            HolsteredWeapon = ActiveWeapon; HolsteredWeapon.SetActive(false);
+            HolsteredWeapon = ActiveWeapon;
             ActiveWeapon = newWeapon;
+            HolsteredWeapon.SetActive(false);
+            ActiveWeapon.GetComponent<Weapon>().SetPosition();
         }
         else if(ActiveWeapon != null && HolsteredWeapon !=null) //Is called when player has two weapons already. Active weapon is dropped and replaced by new weapon
         {
@@ -30,6 +39,7 @@ public class Inventory : MonoBehaviour
             ActiveWeapon = newWeapon;
         }
     }
+
     public void SetActiveEquipment(GameObject newEquipment)
     {
         if (ActiveEquipment == null && HolsteredEquipment == null) ActiveEquipment = newEquipment; 
@@ -69,5 +79,16 @@ public class Inventory : MonoBehaviour
     public void Drop(GameObject item)
     {
         item.transform.SetParent(null, true);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Weapon")
+        {
+            other.transform.position = transform.position;
+            other.transform.rotation = transform.rotation;
+            other.gameObject.transform.SetParent(WeaponsContainer.transform, true);
+            SetActiveWeapon(other.gameObject);
+        }    
     }
 }
