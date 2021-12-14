@@ -16,6 +16,7 @@ public class DefaultWeapon : Ranged
     private void Awake()
     {
         ProjectileSpawnpoint = transform.GetChild(0).gameObject.transform;
+        Projectile.GetComponent<Projectile>().FireForce = Fireforce;
     }
 
 }

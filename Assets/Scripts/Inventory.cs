@@ -7,10 +7,12 @@ public class Inventory : MonoBehaviour
 {
     public GameObject ActiveWeapon;
     public GameObject ActiveEquipment;
-    private GameObject HolsteredWeapon;
+    public GameObject HolsteredWeapon;
     private GameObject HolsteredEquipment;
 
     private GameObject WeaponsContainer;
+
+    private bool _canPickUp = true;
 
     private void Awake()
     {
@@ -23,7 +25,7 @@ public class Inventory : MonoBehaviour
         if (ActiveWeapon == null && HolsteredWeapon == null)
         {
             ActiveWeapon = newWeapon;
-            
+            newWeapon.gameObject.transform.SetParent(WeaponsContainer.transform);
         }
 
         else if(ActiveWeapon != null && HolsteredWeapon == null) //Is called when player has one weapon already. Active becomes holstered and new weapon set to active weapon
@@ -31,12 +33,15 @@ public class Inventory : MonoBehaviour
             HolsteredWeapon = ActiveWeapon;
             ActiveWeapon = newWeapon;
             HolsteredWeapon.SetActive(false);
+            ActiveWeapon.gameObject.transform.SetParent(WeaponsContainer.transform);
             SetPositionOfPickedUpWeapon();
         }
         else if(ActiveWeapon != null && HolsteredWeapon !=null) //Is called when player has two weapons already. Active weapon is dropped and replaced by new weapon
         {
             Drop(ActiveWeapon);
             ActiveWeapon = newWeapon;
+            ActiveWeapon.gameObject.transform.SetParent(WeaponsContainer.transform);
+            SetPositionOfPickedUpWeapon();
         }
     }
 
@@ -48,8 +53,9 @@ public class Inventory : MonoBehaviour
         {
             HolsteredEquipment = ActiveEquipment; HolsteredEquipment.SetActive(false);
             ActiveEquipment = newEquipment;
+
         }
-        else if (ActiveEquipment != null && HolsteredEquipment!= null) 
+        else if (ActiveEquipment != null && HolsteredEquipment!= null ) 
         {
             Drop(ActiveEquipment);
             ActiveEquipment = newEquipment;
@@ -79,6 +85,13 @@ public class Inventory : MonoBehaviour
     public void Drop(GameObject item)
     {
         item.transform.SetParent(null, true);
+        _canPickUp = false;
+        Invoke("AllowPickUp", 1f);
+    }
+
+    private void AllowPickUp()
+    {
+        _canPickUp = true;
     }
 
     public void SetPositionOfPickedUpWeapon()
@@ -86,13 +99,14 @@ public class Inventory : MonoBehaviour
         ActiveWeapon.gameObject.transform.localPosition += ActiveWeapon.GetComponent<Weapon>().PositionOffset;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Weapon")
+        if (other.tag == "Weapon" && _canPickUp)
         {
             other.transform.position = transform.position;
             other.transform.rotation = transform.rotation;
-            other.gameObject.transform.SetParent(WeaponsContainer.transform, true);
+            
+            Debug.Log("setparent");
             SetActiveWeapon(other.gameObject);
         }    
     }

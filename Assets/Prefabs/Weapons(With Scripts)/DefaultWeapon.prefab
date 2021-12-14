@@ -99,11 +99,12 @@ MonoBehaviour:
   Damage: 50
   ReadyToShoot: 1
   FireRate: 0.3
+  PositionOffset: {x: 0, y: 0, z: 0.8}
+  Fireforce: 10
   StartingAmmo: 0
   MagazineSize: 0
   AmmoInMagazine: 0
   ProjectileSpawnpoint: {fileID: 0}
-  PositionOffset: {x: 0, y: 0, z: 0.8}
   Projectile: {fileID: 7589478797318515415, guid: 46f8c7e80b67e174eba701e706e4be24, type: 3}
 --- !u!65 &639946935075176981
 BoxCollider:
