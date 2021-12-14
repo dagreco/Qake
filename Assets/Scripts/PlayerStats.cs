@@ -6,17 +6,26 @@ public class PlayerStats : MonoBehaviour
 {
     public int HP;
     private Slider _slider;
+    public int Lives = 3;
 
     public void UpdateHealth()
     {
         _slider.value = HP;
         if (HP <= 0)
-            Destroy(gameObject);
+        {
+            if (Lives == 0)
+                Destroy(gameObject);
+
+            GameObject.Find("Player Spawn Manager").GetComponent<SpawnManager>().BeDead(gameObject);
+            HP = 100;
+            Lives--;         
+        }
+        
     }
 
-   
 
-    
+
+
 
     private void OnCollisionEnter(Collision collision)
     {

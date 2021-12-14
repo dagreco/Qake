@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour //Spawns players on specified spawnpoints and gives them names
@@ -5,6 +6,7 @@ public class SpawnManager : MonoBehaviour //Spawns players on specified spawnpoi
     //Spawnpoints (In editor always called P1 Spawnpoint and P2 Spawnpoint)
     private GameObject SpawnPoint_1; 
     private GameObject SpawnPoint_2;
+    private int RespawnTime = 3;
         
     private int _playerCount = 1;
 
@@ -38,4 +40,33 @@ public class SpawnManager : MonoBehaviour //Spawns players on specified spawnpoi
                 break;
         }
     }
+    public void BeDead(GameObject player)
+    {
+        player.SetActive(false);
+        StartCoroutine(Respawn(player));
+
+
+
+    }
+        
+    IEnumerator Respawn(GameObject player)
+    {
+        yield return new WaitForSeconds(RespawnTime);
+        switch (player.name)
+        {
+            case "Player 1":
+                player.transform.position = SpawnPoint_1.transform.position;
+                break;
+
+            case "Player 2":
+                player.transform.position = SpawnPoint_2.transform.position;
+                break;
+
+            default:
+                break;
+        }
+        player.SetActive(true);
+    }    
+
+
 }
